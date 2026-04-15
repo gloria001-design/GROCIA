@@ -1,0 +1,86 @@
+.section {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+button {
+  width: 120px;
+  height: 50px;
+  padding: 8px 16px;
+  border: none;
+  background: #f5f5f5;
+  color: #333;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #ff9900;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.see-all {
+  background: #ff9900;
+  color: white;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 220px;
+  max-height: 260px;
+  overflow-y: auto;
+
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  padding: 8px 0;
+  z-index: 100;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: dropdownFade 0.3s forwards;
+}
+
+.dropdown-menu p {
+  padding: 10px 15px;
+  margin: 0;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu p:hover {
+  background: #f7f7f7;
+  color: #ff9900;
+}
+
+/* ANIMATION */
+@keyframes dropdownFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

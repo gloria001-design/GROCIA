@@ -1,0 +1,44 @@
+.heroholder {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  background-color: #dfffc0;
+  justify-content: center;
+  /* flex-direction: row-reverse; */
+  /* align-items: center; */
+}
+.headerbaby {
+  width: 90%;
+  height: 100%;
+  /* background-color: blue; */
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+}
+.imgholder {
+  width: 30%;
+  height: 100%;
+  img {
+    width: 700px;
+  }
+}
+.textholder {
+  width: 40%;
+  height: 100%;
+  /* background-color: white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #02b928;
+  h3 {
+    font-weight: 400;
+    font-size: 50px;
+  }
+  .lis {
+    width: 170px;
+    height: 40px;
+    background-color: #02b928;
+    border: none;
+  }
+}
