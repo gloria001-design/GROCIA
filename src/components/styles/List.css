@@ -8,7 +8,8 @@
 .category {
   width: 90%;
   height: auto;
-  background-color: chartreuse;
+  background-color: white;
+  color: #000;
 
   display: flex;
   flex-direction: row;

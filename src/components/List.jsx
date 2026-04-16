@@ -3,17 +3,25 @@ import { useState, useEffect } from "react";
 // import "./styles/Products.css";
 import "../components/styles/List.css";
 import axios from "axios";
-const List = () => {
-  const [categories, setCategories] = useState([{ strCategory: "See All" }]);
-  const [showDropdown, setShowDropdown] = useState(false);
+const List = ({
+  showcategory,
+  setShowCategory,
+  categoryIndex,
+  setCategoryIndex,
+  categories,
+  setCategories,
+}) => {
+  //   const [categories, setCategories] = useState(["See All", "All "]);
+  //   const [showcategory, setShowCategory] = useState(false);
+  //   const [categoryIndex, setCategoryIndex] = useState(1);
 
-  const URL = "https://www.themealdb.com/api/json/v1/1/categories.php";
+  const URL = "https://fakestoreapi.com/products/categories";
 
   const fetchCategory = async () => {
     try {
       const response = await axios.get(URL);
-
-      setCategories([...categories, ...response.data.categories]);
+      console.log(showcategory);
+      setCategories([...categories, ...response.data]);
     } catch (error) {
       console.error("This error ", error);
     }
@@ -24,46 +32,22 @@ const List = () => {
   return (
     <section className="section">
       <div className="div">
-        {categories
-          ?.slice(1, 10)
-          .reverse()
-          .map((item) => (
-            <div key={item.idCategory} className="category">
-              <button className="btnc">{item.strCategory}</button>
-              {/* <button></button> */}
-            </div>
-          ))}
-
-        <div
-          className="dropdown"
-          onMouseEnter={() => setShowDropdown(true)}
-          onMouseLeave={() => setShowDropdown(false)}
-        >
-          {categories
-            ?.slice(0, 1)
-            //   .reverse()
-            .map((item) => (
-              <div key={item.idCategory} className="category">
-                <button
-                  className={
-                    item.strCategory === "See All" ? "see-all" : "btnc"
-                  }
-                >
-                  {item.strCategory}
-                </button>
-              </div>
-            ))}
-
-          {showDropdown && (
-            <div className="dropdown-menu">
-              {categories.slice(1).map((item) => (
-                <p key={item.idCategory}>{item.strCategory}</p>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* {showDropdown} */}
+        {categories.map((category, index) => (
+          <button
+            key={index}
+            onMouseEnter={() => {
+              `${category === "See All" ? setShowCategory(true) : null}`;
+            }}
+            onClick={() => setCategoryIndex(index)}
+            style={{
+              background:
+                index === categoryIndex ? "rgb(2,185,40)" : "transparent",
+              color: index === categoryIndex ? "white" : "black",
+            }}
+          >
+            {category}
+          </button>
+        ))}
       </div>
     </section>
   );

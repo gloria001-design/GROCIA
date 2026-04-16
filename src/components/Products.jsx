@@ -6,7 +6,7 @@ const Products = () => {
   const [categories, setCategories] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const URL = "https://www.themealdb.com/api/json/v1/1/categories.php";
+  const URL = "https://fakestoreapi.com/products";
 
   const fetchCategory = async () => {
     try {

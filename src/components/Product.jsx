@@ -1,6 +1,8 @@
 import "../components/styles/Product.css";
 
-const Products = ({ data, isloading, navigate }) => {
+const Products = ({ data, isloading, navigate, categoryIndex, categories }) => {
+  const selectedCategory = categories[categoryIndex];
+
   return (
     <div>
       {/* <article className="category">
@@ -18,18 +20,26 @@ const Products = ({ data, isloading, navigate }) => {
             <span></span>
           </div>
         ) : (
-          data.map((item) => (
-            <div className="bodycontainer" key={item.id}>
-              <div className="card">
-                <img src={item.images} alt="" />
-                <h1>{item.title}</h1>
-                <p>{item.price}</p>
-                <button onClick={() => navigate(`/detail/${item.id}`)}>
-                  Add to cart
-                </button>
+          data
+            .filter((item) =>
+              selectedCategory === "All"
+                ? true
+                : item.category === selectedCategory,
+            )
+            .map((item) => (
+              <div className="bodycontainer" key={item.id}>
+                <div className="card">
+                  <img src={item.images} alt="" />
+                  <h1>{item.title}</h1>
+                  <p>{item.price}</p>
+                  <button onClick={() => navigate(`/detail/${item.id}`)}>
+                    {selectedCategory === "All"
+                      ? "Show Details"
+                      : "Add to cart"}
+                  </button>
+                </div>
               </div>
-            </div>
-          ))
+            ))
         )}
       </div>
     </div>
