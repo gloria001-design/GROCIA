@@ -67,10 +67,6 @@ button:hover {
   height: 80vh;
   width: 100%;
   gap: 6px;
-  /* font-size: 50px; */
-  /* font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; */
-  /* background: pink; */
-  /* color: blue; */
 }
 .loading span {
   width: 4px;

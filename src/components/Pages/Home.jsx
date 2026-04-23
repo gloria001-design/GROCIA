@@ -8,7 +8,7 @@ import Hero from "../Hero";
 
 // import Products from "../Products";
 import List from "../List";
-import Card from "../Card";
+// import Card from "../Card";
 import Product from "../Product";
 // import Card from "./components/Card";
 const Home = () => {
@@ -18,8 +18,18 @@ const Home = () => {
   const [showcategory, setShowCategory] = useState(false);
   const [category, setCategory] = useState([]);
   const [isloading, setIsloading] = useState(true);
-  const [categories, setCategories] = useState(["See All", "All "]);
+  const [categories, setCategories] = useState(["See All", "All"]);
+  const [cartCount, setCartCount] = useState(() => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    return cartItems.length;
+  });
   const navigate = useNavigate();
+
+  const handleCartChange = () => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartCount(cartItems.length);
+  };
+
   async function fecthData() {
     try {
       const response = await fetch("https://fakestoreapi.com/products");
@@ -44,7 +54,7 @@ const Home = () => {
   console.log(isloading);
   return (
     <div>
-      <Header />
+      <Header cartCount={cartCount} />
       <Hero />
       <List
         setCategories={setCategories}
@@ -63,8 +73,9 @@ const Home = () => {
         categoryIndex={categoryIndex}
         navigate={navigate}
         category={category}
+        onCartChange={handleCartChange}
       />
-      <Card />
+      {/* <Card /> */}
     </div>
   );
 };

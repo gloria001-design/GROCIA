@@ -39,8 +39,8 @@ const Products = () => {
 
           {showDropdown && (
             <div className="dropdown-menu">
-              {categories.slice(1).map((item) => (
-                <p key={item.idCategory}>{item.strCategory}</p>
+              {categories.map((item) => (
+                <p key={item.id}>{item.category}</p>
               ))}
             </div>
           )}

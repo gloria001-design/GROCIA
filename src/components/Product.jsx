@@ -1,8 +1,30 @@
 import "../components/styles/Product.css";
 
-const Products = ({ data, isloading, navigate, categoryIndex, categories }) => {
+const Products = ({
+  data,
+  isloading,
+  navigate,
+  categoryIndex,
+  categories,
+  onCartChange,
+}) => {
   const selectedCategory = categories[categoryIndex];
 
+  const AddCart = (product) => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingItem = cartItems.find((item) => item.id === product.id);
+
+    if (existingItem) {
+      existingItem.quantity = (existingItem.quantity || 1) + 1;
+    } else {
+      cartItems.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    if (typeof onCartChange === "function") {
+      onCartChange();
+    }
+  };
   return (
     <div>
       {/* <article className="category">
@@ -21,22 +43,24 @@ const Products = ({ data, isloading, navigate, categoryIndex, categories }) => {
           </div>
         ) : (
           data
-            .filter((item) =>
-              selectedCategory === "All"
-                ? true
-                : item.category === selectedCategory,
+            .filter(
+              (item) =>
+                selectedCategory === "All" ||
+                item.category === selectedCategory,
             )
             .map((item) => (
               <div className="bodycontainer" key={item.id}>
                 <div className="card">
-                  <img src={item.images} alt="" />
+                  <img src={item.image} alt={item.title} />
                   <h1>{item.title}</h1>
                   <p>{item.price}</p>
-                  <button onClick={() => navigate(`/detail/${item.id}`)}>
+                  {/* <button onClick={() => navigate(`/detail/${item.id}`)}>
                     {selectedCategory === "All"
                       ? "Show Details"
                       : "Add to cart"}
-                  </button>
+                    Show Details
+                  </button> */}
+                  <button onClick={() => AddCart(item)}>Add to cart</button>
                 </div>
               </div>
             ))
