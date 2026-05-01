@@ -3,22 +3,22 @@ import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import "./styles/Card.css";
 
-const defaultCart = [
-  {
-    id: 1,
-    title: "Fried Rice",
-    price: 5000,
-    image: "https://i.postimg.cc/GhNJfTzb/download-(13).jpg",
-    quantity: 1,
-  },
-  {
-    id: 2,
-    title: "Chicken",
-    price: 3000,
-    image: "https://i.postimg.cc/XN1wZBRH/download-(14).jpg",
-    quantity: 2,
-  },
-];
+// const defaultCart = [
+//   {
+//     id: 1,
+//     title: "Fried Rice",
+//     price: 5000,
+//     image: "https://i.postimg.cc/GhNJfTzb/download-(13).jpg",
+//     quantity: 1,
+//   },
+//   {
+//     id: 2,
+//     title: "Chicken",
+//     price: 3000,
+//     image: "https://i.postimg.cc/XN1wZBRH/download-(14).jpg",
+//     quantity: 2,
+//   },
+// ];
 
 const loadInitialCart = () => {
   const savedCart = localStorage.getItem("cart");

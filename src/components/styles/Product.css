@@ -1,6 +1,6 @@
 .BodyHolder {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
   background-color: #f5f5f5;
@@ -8,6 +8,7 @@
 }
 
 .bodycontainer {
+  /* justify-content: center; */
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -26,7 +27,7 @@
 }
 
 .bodycontainer img {
-  width: 100%;
+  width: 80%;
   height: 250px;
   object-fit: cover;
   object-position: center;
@@ -38,7 +39,7 @@
   transform: scale(1.05);
 }
 
-.title {
+h1 {
   font-size: 16px;
   font-weight: bold;
   color: #222;

@@ -48,8 +48,8 @@ const List = ({
 
               {showDropdown && (
                 <div className="dropdown-menu">
-                  {categories.slice(1).map((item, idx) => (
-                    <p key={idx}>{item}</p>
+                  {categories.slice(1).map((item, index) => (
+                    <p key={index}>{item}</p>
                   ))}
                 </div>
               )}
