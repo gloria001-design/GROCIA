@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import "./styles/Card.css";
 
-// const defaultCart = [
 //   {
 //     id: 1,
 //     title: "Fried Rice",
